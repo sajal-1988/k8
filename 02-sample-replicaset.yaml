@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: sample-rs
+spec:
+  replicas: 3 # 3 Pods should exist at all times.
+  selector:  # Pods label should be defined in ReplicaSet label selector
+    matchLabels:
+      app: sampleapiapp
+  template:
+    metadata: # Dictionary
+      name: sampleapi-pod
+      labels: # Dictionary 
+        app: sampleapiapp         
+    spec:
+      containers: # List
+        - name: sampleapiapp
+          image: sajalgupta1988/sajal
+          ports:
+            - containerPort: 8080
+              protocol: "TCP"

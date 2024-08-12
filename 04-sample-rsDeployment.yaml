@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-restapp
+  labels:
+    app: backend-restapp
+    tier: backend 
+spec:
+  replicas: 3 # 3 Pods should exist at all times.
+  selector:  # Pods label should be defined in ReplicaSet label selector
+    matchLabels:
+      app: backend-restapp
+      
+  template:
+    metadata: # Dictionary
+      labels: # Dictionary 
+        app: backend-restapp      
+        tier: backend    
+    spec:
+      containers: # List
+        - name: backend-restapp
+          image: sajalgupta1988/sajal
+          ports:
+            - containerPort: 8080
+              protocol: "TCP"

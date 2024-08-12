@@ -1,0 +1,13 @@
+apiVersion: v1 # String
+kind: Pod  # String
+metadata: # Dictionary
+  name: sampleapi-pod
+  labels: # Dictionary 
+    app: sampleapiapp         
+spec:
+  containers: # List
+    - name: sampleapiapp
+      image: sajalgupta1988/sajal
+      ports:
+        - containerPort: 8080
+          protocol: "TCP"
