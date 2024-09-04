@@ -6,7 +6,7 @@ metadata:
     app: frontend-webapp
     tier: frontend  
 spec:
-  type: NodePort # ClusterIp, # NodePort
+  type: LoadBalancer # ClusterIp, # NodePort
   selector:
     app: frontend-webapp
   ports: 

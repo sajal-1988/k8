@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: windows-restapp
+  labels:
+    app: windows-restapp
+    tier: backend
+spec:
+  replicas: 2 # 3 Pods should exist at all times.
+  selector:  # Pods label should be defined in ReplicaSet label selector
+    matchLabels:
+      app: windows-restapp
+      
+  template:
+    metadata: # Dictionary
+      labels: # Dictionary 
+        app: windows-restapp      
+        tier: backend    
+    spec:
+      nodeSelector:
+        app: windows
+      containers: # List
+        - name: windows-restapp
+          image: sajalgupta1988/windowsapi:latest
+          ports:
+            - containerPort: 8080
+              protocol: "TCP"
+      

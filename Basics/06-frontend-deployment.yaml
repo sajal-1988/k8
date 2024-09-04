@@ -20,7 +20,7 @@ spec:
         - name: frontend-webapp
           image: sajalgupta1988/samplefront
           ports:
-            - containerPort: 80
+            - containerPort: 8080
           env:
             - name: SajalSettings__ApiUrl
               value: http://my-backend-service:8081/
